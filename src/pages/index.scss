@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import './assest/mixins';
+
+:root {
+    --first-color-second: hsl(#{$hue-color}, 69%, 61%);
+    --title-color: hsl(#{$hue-color}, 8%, 15%);
+    --text-color: hsl(#{$hue-color}, 8%, 45%);
+    --input-color: hsl(#{$hue-color}, 70%, 96%);
+    --body-color: hsl(#{$hue-color}, 60%, 99%);
+    --container-color: #fff;
+}
+
+.dark-theme {
+    --body-color: hsl(#{$hue-color}, 28%, 12%);
+    --first-color-second: hsl(#{$hue-color}, 30%, 8%);
+    --title-color: hsl(#{$hue-color}, 8%, 95%);
+    --text-color: hsl(#{$hue-color}, 8%, 75%);
+    --input-color: hsl(#{$hue-color}, 29%, 16%);
+    --container-color: hsl(#{$hue-color}, 29%, 16%);
+}
+
+body {
+    margin: 0 0 $header-height 0;
+    font-family: $body-font;
+    @include normal-font-size;
+    background-color: var(--body-color);
+    color: var(--text-color);
+
+    @include media(medium) {
+        margin-bottom: 0;
+    }
+}
+
+button {
+    background-color: transparent;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+    color: var(--title-color);
+    font-weight: $font-semi-bold;
+}
+
+
+img {
+    max-width: 100%;
+    height: max-content;
+}
+
+section {
+    padding: 2rem 0 2rem;
+
+    > h2 {
+        text-align: center;
+    }
+
+    > p {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        @include media(small) {
+            margin-bottom: 5rem;
+        }
+    }
+}
+
+

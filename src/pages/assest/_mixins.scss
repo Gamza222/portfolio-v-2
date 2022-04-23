@@ -1,0 +1,142 @@
+@import './variables';
+
+@mixin media($v) {
+    @if $v == big {
+        @media screen and (min-width: 1178px) {
+            @content;
+        }
+    } @else if $v == sm {
+        @media screen and (max-width:467px ) {
+            @content;
+        }
+    }
+    @else if $v == bsm {
+        @media screen and (max-width:967px ) {
+            @content;
+        }
+    }
+    @else if $v == vsm {
+        @media screen and (max-width:350px ) {
+            @content;
+        }
+    }
+    @else if $v == small {
+        @media screen and (min-width: 653px ) {
+            @content;
+        }
+    }
+    @else if $v == medium {
+        @media screen and (min-width: 753px ) {
+            @content;
+        }
+    }
+}
+
+
+/*fonts*/
+@mixin big-font-size() {
+    font-size: 2rem;
+
+    @include media(big) {
+        font-size: 3rem;
+    }
+}
+@mixin h1-font-size() {
+    font-size: 1.5rem;
+
+    @include media(md) {
+        font-size: 2.25rem;
+    }
+}
+@mixin h2-font-size() {
+    font-size: 1.25rem;
+
+    @include media(md) {
+        font-size: 1.5rem;
+    }
+}
+
+@mixin h3-font-size() {
+    font-size: 1.125rem;
+
+    @include media(md) {
+        font-size: 1.25rem;
+    }
+}
+@mixin normal-font-size() {
+    font-size: .938rem;
+
+    @include media(md) {
+        font-size: 1rem;
+    }
+}
+@mixin small-font-size() {
+    font-size: .813rem;
+
+    @include media(md) {
+        font-size: .875rem;
+    }
+}
+@mixin smaller-font-size() {
+    font-size: .75rem;
+
+    @include media(md) {
+        font-size: .813rem;
+    }
+}
+
+
+/*sections*/
+
+@mixin section__title {
+    @include h1-font-size;
+    text-align: center;
+}
+
+@mixin section__subtitle {
+    display: block;
+    font-size: $small-font-size;
+    text-align: center;
+}
+
+/*layout*/
+
+@mixin container {
+    min-height:20vh;
+    margin: 0 $mb-1-5;
+
+    @include media(medium) {
+        padding: 0 1rem;
+    }
+
+    @include media(vsm) {
+        margin-left: $mb-1;
+        margin-right: $mb-1;
+    }
+}
+
+@mixin grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@mixin button {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 0.5rem;
+    background-color: $first-color;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: $font-medium;
+
+    > svg {
+        font-size: 1.1rem;
+    }
+
+    &:hover {
+        background-color: $first-color-alt;
+    }
+}
+

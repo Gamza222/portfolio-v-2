@@ -1,0 +1,110 @@
+@import '../../assest/mixins';
+
+.skills {
+    @include container;
+    @include media(small) {
+        margin-bottom: 4rem;
+    }
+    @include media(medium) {
+        margin-bottom: 6rem;
+    }
+    @include media(big) {
+        margin-bottom: 10rem;
+    }
+
+    > p {
+        margin-bottom: 2rem;
+
+        @include media(small) {
+            margin-bottom: 5rem;
+        }
+    }
+
+    &__container {
+        @include grid;
+        row-gap: 0 !important;
+
+        &__header {
+            display: flex;
+            align-items: center;
+            margin-bottom: $mb-2-5;
+            cursor: pointer;
+
+            > h2 {
+                @include h3-font-size;
+            }
+
+            > p {
+                @include small-font-size;
+                color: $text-color-light;
+            }
+
+            > svg {
+                font-size: 2rem;
+                color: $first-color;
+            }
+
+            > svg:nth-child(1) {
+                margin-right: $mb-0-75;
+            }
+
+            > svg:nth-child(2) {
+                margin-left: auto;
+                transition: 0.4s;
+            }
+        }
+    }
+
+    &__list {
+
+        &__data {
+
+            &__title {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: $mb-0-5;
+
+                > h3 {
+                    @include normal-font-size;
+                    font-weight: $font-medium;
+                }
+            }
+
+            &__bar {
+                height: 5px;
+                border-radius: 0.25rem;
+            }
+
+            &__bar {
+                background-color: $first-color-lighter;
+
+                > span {
+                    display: block;
+                    background-color: $first-color;
+                    height: 5px;
+                    border-radius: 0.25rem;
+                }
+    
+                &__html {
+                    width: 90%;
+                }
+                &__css {
+                    width: 90%;
+                }
+                &__js {
+                    width: 70%;
+                }
+                &__react {
+                    width: 80%;
+                }
+                &__gatsby {
+                    width: 70%;
+                }
+            }
+        }
+    }
+}
+
+.listOpen {
+    height: max-content;
+}

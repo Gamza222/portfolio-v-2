@@ -1,0 +1,73 @@
+@import '../../assest/mixins';
+
+.portfolio {
+    height: fit-content !important;
+    @include container;
+    margin-bottom: 5rem;
+
+    @include media(big) {
+        margin-bottom: 10rem;
+    }
+
+    &__container {
+        @include grid;
+        overflow: initial;
+        justify-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        @include media(bsm) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @include media(sm) {
+            grid-template-columns: 1fr;
+        }
+
+        &__content {
+            padding: 1.5rem;
+            display: grid;
+            width: fit-content;
+            border-radius: 1.5rem;
+            border: 2px transparent solid;
+            background: rgb(240, 227, 255);
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                border-color: rgb(240, 227, 255);
+                background: transparent;
+
+            }
+
+            > img {
+                border-radius: 1.1rem;
+                justify-self: center;
+                margin-bottom: $mb-0-5;
+            }
+        }
+    }
+
+    &__data {
+
+        > a {
+            @include button;
+            
+            > svg {
+                transition: all 0.2s ease;
+            }
+
+            &:hover {
+
+                > svg {
+                    transform: translateX(0.25rem);
+                }
+            }
+
+            
+        }
+
+        > h3 {
+            @include h3-font-size;
+            margin-bottom: $mb-0-5;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+@import '../../assest/mixins';
+
+.about {
+    @include container;
+    display: grid;
+    @include media(small) {
+        margin-bottom: 2rem;
+    }
+    
+
+     h2, p {
+        text-align: center;
+    }
+
+    > p {
+        margin-bottom: 1rem;
+        @include media(small) {
+            margin-bottom: 6rem;
+        }
+    }
+
+    &__container {
+        @include grid;
+
+        @include media(small) {
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        > img {
+            min-width: 200px;
+            max-width: 320px;
+            border-radius: .5rem;
+            justify-self: center;
+            align-self: center;
+            @include media (vsm) {
+                min-width: 120px;
+                width: 190px;
+            }
+            @include media (big) {
+                margin-left: -4rem;
+            }
+        }
+        > div {
+            > p {
+                text-align: center;
+                width: 100%;
+                margin-bottom: $mb-2-5;
+            }
+        }
+
+        &__data {
+                display: flex;
+                justify-content: space-evenly;
+                margin-bottom: $mb-2-5;
+            
+
+            &__info {
+                flex-direction: column;
+                
+
+                > span {
+                    display: block;
+                    text-align: center;
+                }
+
+                > span:nth-child(1) {
+                    @include h2-font-size;
+                    font-weight: $font-semi-bold;
+                    color: var(--title-color);
+                }
+
+                > span:nth-child(2) {
+                    @include smaller-font-size;
+                }
+            }
+        }
+
+        &__buttons {
+            display: flex;
+            justify-content: center;
+            
+            > a {
+                @include button;
+            }
+        }
+    }
+}
